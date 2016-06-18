@@ -13,9 +13,11 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/style.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="cookbook">
+  <body ng-app="cookbook" ng-controller="MainCtrl">
+    <img ng-src="images/{{randomize()}}.jpg" class="bg">
     <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
