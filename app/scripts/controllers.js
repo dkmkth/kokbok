@@ -34,7 +34,3 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     recipeFactory.add(dishName, $scope.ingredients, $scope.amounts)
   }
 })
-
-.controller('AboutCtrl', function($scope) {
-  $scope.foo = "Aboutcontroller";
-})

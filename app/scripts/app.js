@@ -40,12 +40,6 @@ angular
    controller  : 'AddCtrl'
  })
 
- // route for the about page
- .when('/about', {
-   templateUrl : 'views/about.html',
-   controller  : 'AboutCtrl'
- })
-
  .otherwise({
    redirectTo: '/home',
    templateUrl: 'views/home.html',
