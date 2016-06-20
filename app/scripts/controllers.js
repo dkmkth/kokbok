@@ -3,10 +3,7 @@ angular.module('cookbook.controllers', ['cookbook.services'])
 .controller('MainCtrl', function($scope, $location) {
   $scope.isActive = function(route) {
         return route === $location.path();
-    }
-  $scope.randomize = function() {
-    return Math.floor((Math.random() * 10) + 1);
-  }
+    };
 })
 
 .controller('HomeCtrl', function($scope) {

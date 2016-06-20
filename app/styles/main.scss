@@ -71,7 +71,23 @@ img.bg {
 	.jumbotron {
 		text-align: center;
 		border-bottom: 1px solid #e5e5e5;
-		opacity: 0.9;
+		background-color: rgba(0, 0, 0, 0.9);
+
+		p {
+			color: white;
+		}
+
+		h2 {
+			color: white;
+		}
+
+		h1 {
+			color: white;
+		}
+
+		label {
+			color: white;
+		}
 
 		.btn {
 			font-size: 21px;
