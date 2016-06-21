@@ -2,22 +2,39 @@ angular.module('cookbook.controllers', ['cookbook.services'])
 
 .controller('MainCtrl', function($scope, $location) {
   $scope.isActive = function(route) {
-        if(route === $location.path()) {
-          return "on";
-        } else {
-          return "off";
-        }
-    };
+    if(route === $location.path()) {
+      return "on";
+    } else {
+      return "off";
+    }
+  };
 })
 
 .controller('HomeCtrl', function($scope) {
   $scope.foo = "Homecontroller";
 })
 
-.controller('RecipesCtrl', function($scope, recipeFactory) {
+.controller('RecipesCtrl', function($scope, recipeFactory, $timeout, $uibModal, $log) {
   $scope.foo = "Recipescontroller";
 
   $scope.recipes = recipeFactory.get();
+
+
+  // MODAL WINDOW
+  $scope.open = function (_recipe) {
+
+    var modalInstance = $uibModal.open({
+      controller: "ModalInstanceCtrl",
+      templateUrl: 'myModalContent.html',
+      resolve: {
+        recipe: function()
+        {
+          return _recipe;
+        }
+      }
+    });
+
+  };
 })
 
 .controller('AddCtrl', function($scope, recipeFactory) {
@@ -27,11 +44,18 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   $scope.amounts = [];
 
   $scope.range = function(n) {
-      return new Array(n);
-    };
+    return new Array(n);
+  };
 
   $scope.addRecipe = function(dishName) {
     console.log("AddCtrl - Calling addRecipe with ", $scope.ingredients, $scope.amounts);
-    recipeFactory.add(dishName, $scope.ingredients, $scope.amounts)
+    recipeFactory.add(dishName, $scope.ingredients, $scope.amounts);
+    recipeForm.$setPristine();
+    recipeForm.$setUntouched();
   }
 })
+
+.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, recipe)
+{
+  $scope.recipe = recipe;
+});

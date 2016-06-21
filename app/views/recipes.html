@@ -3,9 +3,21 @@
   <h1>Våra recept</h1>
 
   <div ng-repeat="recipe in recipes">
-    <h2> {{ recipe["Namn"] }} </h2>
-    <p ng-repeat="ingredient in recipe['Ingredienser']">
-      {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
-    </p>
+    <button class="btn btn-default" ng-click="open(recipe)">{{ recipe["Namn"] }}</button> <br />
+
+    <!--MODAL WINDOW-->
+    <script type="text/ng-template" id="myModalContent.html">
+      <div class="modal-header">
+        <h3>{{ recipe["Namn"] }}</h3>
+      </div>
+      <div class="modal-body">
+        <p ng-repeat="ingredient in recipe['Ingredienser']">
+          {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
+        </p>
+        <div class="modal-footer">
+
+        </div>
+      </script>
+
+    </div>
   </div>
-</div>
