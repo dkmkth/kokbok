@@ -64,6 +64,17 @@ img.bg {
 	.navbar-form >button {
 		margin-top: 7px;
 	}
+
+	// Color for active tab
+	.on {
+		background-color: rgb(20, 20, 20);
+	}
+
+	// Color for inactive tab
+	.off {
+		background-color: rgb(0, 0, 0);
+	}
+
 }
 
 .browsehappy {

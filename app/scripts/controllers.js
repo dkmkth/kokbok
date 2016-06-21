@@ -4,6 +4,24 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   $scope.isActive = function(route) {
         return route === $location.path();
     };
+
+  // Default value when user is at home-screen
+  var active = 0;
+
+  // Update active tab
+  $scope.updateActive = function(tab) {
+    active = tab;
+  }
+
+  // Return on if tab is active
+  $scope.activeTab = function(tab) {
+    if (tab == active) {
+      return "on";
+    } else {
+      return "off";
+    }
+  }
+
 })
 
 .controller('HomeCtrl', function($scope) {
