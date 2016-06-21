@@ -20,8 +20,8 @@
         <div ng-show="count > 0">
           <!-- Add as many text inputs as there are ingredients -->
           <div class="form-group" ng-repeat="n in range(count) track by $index">
-            <div class="col-xs-3 col-xs-offset-3"><label>Ingrediens</label><input type="text" class="form-control" placeholder="Ex. Bacon" ng-model="ingredients[$index]" ng-model-options="{ updateOn: 'blur' }" required></div>
-            <div class="col-xs-3"><label>Mängd</label><input type="text" class="form-control" placeholder="Ex. 4kg" ng-model="amounts[$index]" ng-model-options="{ updateOn: 'blur' }" required></div>
+            <div class="col-xs-3 col-xs-offset-3"><label>Ingrediens</label><input type="text" class="form-control" placeholder="Ex. Bacon" ng-model="ingredients[$index]" ng-model-options="{ updateOn: 'default blur', debounce: { default: 300, blur: 0}}" required></div>
+            <div class="col-xs-3"><label>Mängd</label><input type="text" class="form-control" placeholder="Ex. 4kg" ng-model="amounts[$index]" ng-model-options="{ updateOn: 'default blur', debounce: { default: 300, blur: 0}}" required></div>
           </div>
         </div>
         <hr>
