@@ -1,5 +1,8 @@
 // bower:scss
 // endbower
+
+
+// Background of website
 img.bg {
 	/* Set rules to fill background */
 	min-height: 100%;
@@ -22,29 +25,31 @@ img.bg {
 		margin-left: -512px; }
 	}
 
+	// Navbar-specific CSS
 	.navbar {
 		background-color: black;
 
+		//Adjust height of brand and decrease space to search field
 		.navbar-brand {
 			height: 60px;
 			margin-right: -10px;
 		}
 
+		//Vertically center menu options
 		.nav >li >a {
 			padding-top: 22px;
 			padding-bottom: 22px;
 		}
 
-		//Center text-field in navbar
-		.navbar-form >div >input{
+		//Vertically center text-field in navbar
+		.navbar-form >div >input {
 			margin-top: 7px;
 		}
 
-		//Center search button in navbar
-		.navbar-form >button{
+		//Vertically center search button in navbar
+		.navbar-form >button {
 			margin-top: 7px;
 		}
-
 	}
 
 	.browsehappy {
@@ -52,10 +57,6 @@ img.bg {
 		background: #ccc;
 		color: #000;
 		padding: 0.2em 0;
-	}
-
-	body {
-		padding: 0;
 	}
 
 	/* Everything but the jumbotron gets side spacing for mobile first views */
@@ -66,35 +67,10 @@ img.bg {
 		padding-right: 15px;
 	}
 
-	/* Custom page header */
-	.header {
-		border-bottom: 1px solid #e5e5e5;
-		margin-bottom: 10px;
 
-		/* Make the masthead heading the same height as the navigation */
-		h3 {
-			margin-top: 0;
-			margin-bottom: 0;
-			line-height: 40px;
-			padding-bottom: 19px;
-		}
-	}
-
-	/* Custom page footer */
-	.footer {
-		padding-top: 19px;
-		color: #777;
-		border-top: 1px solid #e5e5e5;
-	}
-
-	.container-narrow > hr {
-		margin: 30px 0;
-	}
-
-	/* Main marketing message and sign up button */
+	// Jumbotron content CSS
 	.jumbotron {
 		text-align: center;
-		border-bottom: 1px solid #e5e5e5;
 		background-color: rgba(0, 0, 0, 0.9);
 
 		p {
@@ -119,18 +95,11 @@ img.bg {
 		}
 	}
 
-	/* Supporting marketing content */
-	.marketing {
-		margin: 40px 0;
-
-		p + h4 {
-			margin-top: 28px;
-		}
-	}
 
 	.navbar-brand {
 		padding: 0px;
 	}
+
 	.navbar-brand>img {
 		height: 120%;
 		width: 120%;
@@ -153,19 +122,4 @@ img.bg {
 			max-width: 730px;
 		}
 
-		/* Remove the padding we set earlier */
-		.header,
-		.marketing,
-		.footer {
-			padding-left: 0;
-			padding-right: 0;
-		}
-		/* Space out the masthead */
-		.header {
-			margin-bottom: 30px;
-		}
-		/* Remove the bottom border on the jumbotron for visual effect */
-		.jumbotron {
-			border-bottom: 0;
-		}
 	}
