@@ -33,7 +33,6 @@ angular.module('cookbook.controllers', ['cookbook.services'])
         }
       }
     });
-
   };
 })
 
@@ -48,10 +47,10 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   };
 
   $scope.addRecipe = function(dishName) {
-    console.log("AddCtrl - Calling addRecipe with ", $scope.ingredients, $scope.amounts);
+    if ($scope.ingredients.length == 0) {
+      return;
+    }
     recipeFactory.add(dishName, $scope.ingredients, $scope.amounts);
-    recipeForm.$setPristine();
-    recipeForm.$setUntouched();
   }
 })
 
