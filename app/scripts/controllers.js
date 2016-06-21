@@ -2,26 +2,12 @@ angular.module('cookbook.controllers', ['cookbook.services'])
 
 .controller('MainCtrl', function($scope, $location) {
   $scope.isActive = function(route) {
-        return route === $location.path();
+        if(route === $location.path()) {
+          return "on";
+        } else {
+          return "off";
+        }
     };
-
-  // Default value when user is at home-screen
-  var active = 0;
-
-  // Update active tab
-  $scope.updateActive = function(tab) {
-    active = tab;
-  }
-
-  // Return on if tab is active
-  $scope.activeTab = function(tab) {
-    if (tab == active) {
-      return "on";
-    } else {
-      return "off";
-    }
-  }
-
 })
 
 .controller('HomeCtrl', function($scope) {

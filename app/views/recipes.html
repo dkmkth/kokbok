@@ -1,13 +1,11 @@
 <div class="jumbotron text-center" id="asd">
 
-        <h1>Våra recept</h1>
+  <h1>Våra recept</h1>
 
-        <p>{{ foo }}</p> <br>
-
-        <div ng-repeat="recipe in recipes">
-          <h2> {{ recipe["Namn"] }} </h2>
-          <p ng-repeat="ingredient in recipe['Ingredienser']">
-            {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
-          </p>
-        </div>
-    </div>
+  <div ng-repeat="recipe in recipes">
+    <h2> {{ recipe["Namn"] }} </h2>
+    <p ng-repeat="ingredient in recipe['Ingredienser']">
+      {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
+    </p>
+  </div>
+</div>

@@ -21,7 +21,7 @@
   <nav class="navbar navbar-default navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#/home" ng-click="updateActive(0)"><img src="images/DKM_kock.png" alt="DKM logo">
+        <a class="navbar-brand" href="#/home"><img src="images/DKM_kock.png" alt="DKM logo">
         </a>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
@@ -32,8 +32,8 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ng-class="activeTab(1)"><a href="#recipes" ng-click="updateActive(1)">Våra recept</a></li>
-          <li ng-class="activeTab(2)"><a href="#add" ng-click="updateActive(2)">Lägg till recept</a></li>
+          <li ng-class="isActive('/recipes')"><a href="#recipes">Våra recept</a></li>
+          <li ng-class="isActive('/add')"><a href="#add">Lägg till recept</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->
