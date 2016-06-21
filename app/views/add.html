@@ -1,4 +1,4 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" id="add">
   <h1>Lägg till recept</h1>
 
   <p>{{ foo }}</p>
@@ -7,30 +7,30 @@
 
   <div class="container" ng-init="count = 0">
     <h2>Lägg till recept <p class="lead">Ange namn och hur många ingredienser som använts</p></h2>
-    <form role="form" class="form-horizontal" name="recipeForm">
-      <div class="form-group">
-        <label class="col-sm-1" for="inputEmail1">Namn</label>
-        <div class="col-sm-5"><input type="text" class="form-control" placeholder="Ex. Baconbäbisar" ng-model="recipe.dish" required></div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-1" for="inputPassword1">Ingredienser</label>
-        <div class="col-sm-5"><input type="number" class="form-control" ng-model="count"></div>
-      </div>
-      <!-- Show if number of ingredients is bigger than 0 -->
-      <div ng-show="count > 0">
-        <!-- Add as many text inputs as there are ingredients -->
-        <div class="form-group" ng-repeat="n in range(count) track by $index">
-          <div class="col-sm-3"><label>Ingrediens</label><input type="text" class="form-control" placeholder="Ex. Bacon" ng-model="ingredients[$index]" ng-model-options="{ updateOn: 'blur' }" required></div>
-          <div class="col-sm-3"><label>Mängd</label><input type="text" class="form-control" placeholder="Ex. 4kg" ng-model="amounts[$index]" ng-model-options="{ updateOn: 'blur' }" required></div>
+      <form role="form" class="form-horizontal no-margin center-block" name="recipeForm">
+        <div class="form-group">
+          <label class="control-label col-xs-offset-1 col-xs-2" for="name">Namn</label>
+          <div class="col-xs-6"><input type="text" class="form-control" placeholder="Ex. Baconbäbisar" ng-model="dish" required></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-xs-offset-1 col-xs-2" for="amount">Ingredienser</label>
+          <div class="col-xs-6"><input type="number" class="form-control" ng-model="count"></div>
+        </div>
+        <!-- Show if number of ingredients is bigger than 0 -->
+        <div ng-show="count > 0">
+          <!-- Add as many text inputs as there are ingredients -->
+          <div class="form-group" ng-repeat="n in range(count) track by $index">
+            <div class="col-xs-3 col-xs-offset-3"><label>Ingrediens</label><input type="text" class="form-control" placeholder="Ex. Bacon" ng-model="ingredients[$index]" ng-model-options="{ updateOn: 'blur' }" required></div>
+            <div class="col-xs-3"><label>Mängd</label><input type="text" class="form-control" placeholder="Ex. 4kg" ng-model="amounts[$index]" ng-model-options="{ updateOn: 'blur' }" required></div>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group">
+          <div class="col-xs-6 col-xs-offset-3">
+            <button type="submit" class="btn btn-info pull-right" ng-disabled="recipeForm.$invalid" ng-click="addRecipe(dish)">Lägg till</button>
+          </div>
         </div>
       </form>
-      <hr>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-6">
-        <button type="submit" class="btn btn-info pull-right" ng-disabled="recipeForm.$invalid" ng-click="addRecipe(recipe.dish)">Submit</button>
-      </div>
-    </div>
   </div>
 
 </div>

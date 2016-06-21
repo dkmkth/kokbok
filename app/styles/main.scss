@@ -16,6 +16,8 @@ img.bg {
 	position: fixed;
 	top: 0;
 	left: 0;
+
+	/* Move behind everything else */
 	z-index: -1;
 }
 
@@ -101,10 +103,6 @@ img.bg {
 		color: white;
 	}
 
-	.btn {
-		font-size: 21px;
-		padding: 14px 24px;
-	}
 }
 
 
