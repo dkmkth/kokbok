@@ -22,6 +22,30 @@ img.bg {
 		margin-left: -512px; }
 	}
 
+	.navbar {
+		background-color: black;
+
+		.navbar-brand {
+			height: 60px;
+			margin-right: -10px;
+		}
+
+		.nav >li >a {
+			padding-top: 22px;
+			padding-bottom: 22px;
+		}
+
+		//Center text-field in navbar
+		.navbar-form >div >input{
+			margin-top: 7px;
+		}
+
+		//Center search button in navbar
+		.navbar-form >button{
+			margin-top: 7px;
+		}
+
+	}
 
 	.browsehappy {
 		margin: 0.2em 0;

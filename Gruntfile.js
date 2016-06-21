@@ -450,6 +450,15 @@ module.exports = function (grunt) {
       ]
     },
 
+    autoprefixer: {
+    options: {
+      // Task-specific options go here.
+    },
+    your_target: {
+      // Target-specific file lists and/or options go here.
+    },
+  },
+
     // Test settings
     karma: {
       unit: {
@@ -459,6 +468,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
