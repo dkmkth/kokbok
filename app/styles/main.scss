@@ -22,104 +22,96 @@ img.bg {
 @media screen and (max-width: 1024px){
 	img.bg {
 		left: 50%;
-		margin-left: -512px; }
+		margin-left: -512px;
 	}
+}
 
-	// Navbar-specific CSS
-	.navbar {
-		background-color: black;
+// Navbar-specific CSS
+.navbar {
+	background-color: black;
 
-		//Adjust height of brand and decrease space to search field
-		.navbar-brand {
-			height: 60px;
-			margin-right: -10px;
-		}
-
-		//Vertically center menu options
-		.nav >li >a {
-			padding-top: 22px;
-			padding-bottom: 22px;
-		}
-
-		//Vertically center text-field in navbar
-		.navbar-form >div >input {
-			margin-top: 7px;
-		}
-
-		//Vertically center search button in navbar
-		.navbar-form >button {
-			margin-top: 7px;
-		}
-	}
-
-	.browsehappy {
-		margin: 0.2em 0;
-		background: #ccc;
-		color: #000;
-		padding: 0.2em 0;
-	}
-
-	/* Everything but the jumbotron gets side spacing for mobile first views */
-	.header,
-	.marketing,
-	.footer {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-
-
-	// Jumbotron content CSS
-	.jumbotron {
-		text-align: center;
-		background-color: rgba(0, 0, 0, 0.9);
-
-		p {
-			color: white;
-		}
-
-		h2 {
-			color: white;
-		}
-
-		h1 {
-			color: white;
-		}
-
-		label {
-			color: white;
-		}
-
-		.btn {
-			font-size: 21px;
-			padding: 14px 24px;
-		}
-	}
-
-
+	//Adjust height of brand and decrease space to search field
 	.navbar-brand {
+		height: 60px;
+		margin-right: -10px;
 		padding: 0px;
-	}
 
-	.navbar-brand>img {
-		height: 120%;
-		width: 120%;
-		padding: 15px;
-		width: auto;
-		margin-top: -5px;
-	}
-
-	.navbar-brand>img {
-		padding: 7px 15px;
-	}
-
-	.form-group {
-		text-align: center;
-	}
-
-	/* Responsive: Portrait tablets and up */
-	@media screen and (min-width: 768px) {
-		.container {
-			max-width: 730px;
+		//Image CSS
+		img {
+			height: 120%;
+			width: 120%;
+			padding: 15px;
+			width: auto;
+			margin-top: -5px;
+			padding: 7px 15px;
 		}
-
 	}
+
+	//Vertically center menu options
+	.nav >li >a {
+		padding-top: 22px;
+		padding-bottom: 22px;
+	}
+
+	//Vertically center text-field in navbar
+	.navbar-form >div >input {
+		margin-top: 7px;
+	}
+
+	//Vertically center search button in navbar
+	.navbar-form >button {
+		margin-top: 7px;
+	}
+}
+
+.browsehappy {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+// Jumbotron content CSS
+.jumbotron {
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.9);
+
+	p {
+		color: white;
+	}
+
+	h2 {
+		color: white;
+	}
+
+	h1 {
+		color: white;
+	}
+
+	label {
+		color: white;
+	}
+
+	.btn {
+		font-size: 21px;
+		padding: 14px 24px;
+	}
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+	.container {
+		max-width: 730px;
+	}
+
+}
