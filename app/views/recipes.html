@@ -1,4 +1,4 @@
-<div class="jumbotron text-center" id="asd">
+<div class="jumbotron text-center">
 
   <h1>Våra recept</h1>
 
@@ -14,8 +14,8 @@
         <p ng-repeat="ingredient in recipe['Ingredienser']">
           {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
         </p>
+          <pre>{{recipe["Description"]}}</pre>
         <div class="modal-footer">
-
         </div>
       </script>
 

@@ -7,28 +7,33 @@ angular.module('cookbook.services', [])
      "Ingredienser": [
        {"Namn": "Mjöl", "Mängd": "2 dl"},
        {"Namn": "Vatten", "Mängd": "2 ml"},
-     ]},
+     ],
+      "Description": "Rör om"},
      {"Namn": "Recept 2",
       "Ingredienser": [
         {"Namn": "Botten", "Mängd": "670 dl"},
         {"Namn": "Topping", "Mängd": "2 liter"},
-      ]},
+      ],
+       "Description": "Lägg på Topping"},
       {"Namn": "Ägg",
        "Ingredienser": [
          {"Namn": "Äggvita", "Mängd": "670 dl"},
          {"Namn": "Äggula", "Mängd": "2 liter"},
          {"Namn": "Skal", "Mängd": "78 liter"},
-       ]},
+       ],
+        "Description": "Svårt detta"},
        {"Namn": "Frukost",
         "Ingredienser": [
           {"Namn": "Yoghurt", "Mängd": "3 dl"},
           {"Namn": "Flingor", "Mängd": "50 g"},
-        ]},
+        ],
+         "Description": "Häll i Flingor"},
         {"Namn": "Macka",
          "Ingredienser": [
            {"Namn": "Bröd", "Mängd": "1 st"},
            {"Namn": "Smör", "Mängd": "1 paket"},
-         ]},
+         ],
+          "Description": "Bre på smör"},
   ];
 
 
@@ -40,18 +45,16 @@ angular.module('cookbook.services', [])
     },
 
     //Adds a recipe to the recipes JSON
-    add: function(name, ingredients, amounts) {
-      console.log("recipeFactory - Calling add with recipes as", JSON.stringify(recipes))
+    add: function(name, ingredients, amounts, description) {
       var newRecipe = {"Namn": name,
        "Ingredienser": [
-       ]};
+       ],
+        "Description": description};
        for (var i = 0; i < ingredients.length; i++) {
-         console.log("First for loop - ", i);
          var newIngredient = {"Namn": ingredients[i], "Mängd": amounts[i]};
          newRecipe.Ingredienser[i] = newIngredient;
        }
        recipes[recipes.length] = newRecipe;
-       console.log("recipeFactory - Done with add with recipes as", JSON.stringify(recipes));
     }
 
   };
