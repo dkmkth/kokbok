@@ -107,11 +107,21 @@ img.bg {
 	}
 
 	h1 {
+		margin-top: -20px;
 		color: white;
 	}
 
 	label {
 		color: white;
+	}
+
+}
+
+.media-list {
+
+	.well {
+		background: rgba(20,20,20, 0.7);
+		border-color: black;
 	}
 
 }

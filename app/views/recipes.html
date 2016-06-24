@@ -2,22 +2,35 @@
 
   <h1>Våra recept</h1>
 
-  <div ng-repeat="recipe in recipes">
-    <button class="btn btn-default" ng-click="open(recipe)">{{ recipe["Namn"] }}</button> <br />
-
-    <!--MODAL WINDOW-->
-    <script type="text/ng-template" id="myModalContent.html">
-      <div class="modal-header">
-        <h3>{{ recipe["Namn"] }}</h3>
+  <ul class="media-list">
+    <div class="container" ng-repeat="recipe in recipes">
+      <!-- <button class="btn btn-default" ng-click="open(recipe)">{{ recipe["Namn"] }}</button> <br /> -->
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="well">
+        <li class="media">
+          <div class="media-body">
+            <h2 class="media-heading media-left">{{recipe["Namn"]}}</h2>
+            <a class="pull-right" ng-click="open(recipe)">Läs mer</a>
+          </div>
+        </li>
+        </div>
       </div>
-      <div class="modal-body">
-        <p ng-repeat="ingredient in recipe['Ingredienser']">
-          {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
-        </p>
+
+      <!--MODAL WINDOW-->
+      <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+          <h3>{{ recipe["Namn"] }}</h3>
+        </div>
+        <div class="modal-body">
+          <p ng-repeat="ingredient in recipe['Ingredienser']">
+            {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
+          </p>
           <pre>{{recipe["Description"]}}</pre>
-        <div class="modal-footer">
+          <div class="modal-footer">
+          </div>
         </div>
       </script>
 
     </div>
-  </div>
+  </ul>
+</div>
