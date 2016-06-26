@@ -42,6 +42,13 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   $scope.ingredients = [];
   $scope.amounts = [];
 
+  $scope.howTo = {
+    "name": "Skriv in namnet på din rätt ba",
+    "count": "Hur många ingredienser har du använt",
+    "description": "Beskriv hur man tillagar rätten",
+    "tags": "Vad ska man kunna söka på och hitta rätten, ange taggar kommaseparerade"
+  }
+
   $scope.range = function(n) {
     return new Array(n);
   };

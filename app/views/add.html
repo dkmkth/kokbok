@@ -1,8 +1,34 @@
 <div class="jumbotron text-center" id="add">
-  <h1>Lägg till recept</h1>
+  <h1>Lägg till recept <p class="lead">Ange namn på rätten, hur många ingredienser som använts samt hur rätten tillagas</p></h1>
+
+  <!-- <div class="container">
+    <div class="panel-group col-xs-offset-3 col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a data-toggle="collapse" data-target="#collapse1">
+          <h4 class="panel-title">
+            Collapsible panel
+          </h4>
+          </a>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="panel-body">Panel Body</div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<div class="container">
+  <uib-accordion class="col-xs-6 col-xs-offset-3">
+    <uib-accordion-group heading="How-to" id="collapse">
+      <p>Namn: {{howTo.name}} </p>
+      <p>Ingredienser: {{howTo.count}}</p>
+      <p>Beskrivning: {{howTo.description}}</p>
+      <p>Taggar: {{howTo.tags}}</p>
+    </uib-accordion-group>
+  </uib-accordion>
+</div>
 
   <div class="container" ng-init="count = 0">
-    <h2>Lägg till recept <p class="lead">Ange namn och hur många ingredienser som använts</p></h2>
     <form role="form" class="form-horizontal no-margin center-block" name="recipeForm">
       <div class="form-group">
         <label class="control-label col-xs-offset-1 col-xs-2" for="name">Namn</label>
@@ -24,10 +50,14 @@
         <label class="control-label col-xs-offset-1 col-xs-2" for="name">Beskrivning</label>
         <div class="col-xs-6"> <textarea class="form-control" rows="5" placeholder="Ex. Linda bacon kring en bäbis" ng-model="description" required></textarea></div>
       </div>
+      <div class="form-group">
+        <label class="control-label col-xs-offset-1 col-xs-2" for="amount">Taggar</label>
+        <div class="col-xs-6"><input type="text" class="form-control" ng-model="tags" placeholder="Ex. gott, swag, yolo, bacon"></div>
+      </div>
       <hr>
       <div class="form-group">
         <div class="col-xs-6 col-xs-offset-3">
-          <button type="submit" class="btn btn-info pull-right" ng-disabled="recipeForm.$invalid" ng-click="addRecipe(dish, description)">Lägg till</button>
+          <button type="submit" class="btn btn-info pull-right" ng-disabled="recipeForm.$invalid" ng-click="addRecipe(dish, description, tags)">Lägg till</button>
         </div>
       </div>
     </form>
