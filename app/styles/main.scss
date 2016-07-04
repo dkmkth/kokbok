@@ -122,6 +122,17 @@ img.bg {
 	.well {
 		background: rgba(20,20,20, 0.7);
 		border-color: black;
+		text-align: left;
+		display: table;
+
+		button {
+			display: table-cell;
+		}
+
+		p {
+			margin-top: 8px;
+		}
+
 	}
 
 }

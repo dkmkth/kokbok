@@ -4,15 +4,18 @@
 
   <ul class="media-list">
     <div class="container">
-        <div class="col-xs-6 col-xs-offset-3" ng-repeat="recipe in recipes">
-          <div class="well">
+      <div class="col-xs-8 col-xs-offset-2" ng-repeat="recipe in recipes">
         <li class="media">
-          <div class="media-body">
-            <h2 class="media-heading media-left">{{recipe["Namn"]}}</h2>
-            <a class="pull-right" ng-click="open(recipe)">Läs mer</a>
+          <div class="well" size-directive>
+            <div class="media-body">
+              <h2 class="media-heading media-left">{{recipe["Namn"]}}</h2>
+              <p class="pull-left">
+                {{ recipe["Description"] | limitTo:100 }}
+              </p>
+            </div>
+            <button type="button" class="btn btn-primary pull-right" style="height:{{height}}px;" ng-click="open(recipe)">Läs mer</button>
           </div>
         </li>
-        </div>
       </div>
 
       <!--MODAL WINDOW-->

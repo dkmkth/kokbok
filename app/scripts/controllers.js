@@ -19,7 +19,6 @@ angular.module('cookbook.controllers', ['cookbook.services'])
 
   $scope.recipes = recipeFactory.get();
 
-
   // MODAL WINDOW
   $scope.open = function (_recipe) {
 

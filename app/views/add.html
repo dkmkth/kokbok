@@ -1,32 +1,16 @@
 <div class="jumbotron text-center" id="add">
   <h1>Lägg till recept <p class="lead">Ange namn på rätten, hur många ingredienser som använts samt hur rätten tillagas</p></h1>
 
-  <!-- <div class="container">
-    <div class="panel-group col-xs-offset-3 col-xs-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <a data-toggle="collapse" data-target="#collapse1">
-          <h4 class="panel-title">
-            Collapsible panel
-          </h4>
-          </a>
-        </div>
-        <div id="collapse1" class="panel-collapse collapse">
-          <div class="panel-body">Panel Body</div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-<div class="container">
-  <uib-accordion class="col-xs-6 col-xs-offset-3">
-    <uib-accordion-group heading="How-to" id="collapse">
-      <p>Namn: {{howTo.name}} </p>
-      <p>Ingredienser: {{howTo.count}}</p>
-      <p>Beskrivning: {{howTo.description}}</p>
-      <p>Taggar: {{howTo.tags}}</p>
-    </uib-accordion-group>
-  </uib-accordion>
-</div>
+  <div class="container">
+    <uib-accordion class="col-xs-6 col-xs-offset-3">
+      <uib-accordion-group heading="How-to" id="collapse">
+        <p>Namn: {{howTo.name}} </p>
+        <p>Ingredienser: {{howTo.count}}</p>
+        <p>Beskrivning: {{howTo.description}}</p>
+        <p>Taggar: {{howTo.tags}}</p>
+      </uib-accordion-group>
+    </uib-accordion>
+  </div>
 
   <div class="container" ng-init="count = 0">
     <form role="form" class="form-horizontal no-margin center-block" name="recipeForm">
