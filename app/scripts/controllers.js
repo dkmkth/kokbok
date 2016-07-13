@@ -52,11 +52,11 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     return new Array(n);
   };
 
-  $scope.addRecipe = function(dishName, description) {
+  $scope.addRecipe = function(dishName, description, tags) {
     if ($scope.ingredients.length == 0) {
       return;
     }
-    recipeFactory.add(dishName, $scope.ingredients, $scope.amounts, description);
+    recipeFactory.add(dishName, $scope.ingredients, $scope.amounts, description, tags);
   }
 })
 

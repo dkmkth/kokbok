@@ -2,37 +2,54 @@
 
   <h1>Våra recept</h1>
 
-  <ul class="media-list">
-    <div class="container">
-      <div class="col-xs-8 col-xs-offset-2" ng-repeat="recipe in recipes">
-        <li class="media">
-          <div class="well" size-directive>
-            <div class="media-body">
-              <h2 class="media-heading media-left">{{recipe["Namn"]}}</h2>
-              <p class="pull-left">
-                {{ recipe["Description"] | limitTo:100 }}
-              </p>
-            </div>
-            <button type="button" class="btn btn-primary pull-right" style="height:{{height}}px;" ng-click="open(recipe)">Läs mer</button>
-          </div>
-        </li>
-      </div>
+  <!-- <ul class="media-list">
+  <div class="container">
+  <li class="media col-lg-8 col-lg-offset-2" ng-repeat="recipe in recipes">
+  <div class="well-sm" size-directive>
+  <div class="media-body">
+  <h2 class="media-heading media-left">{{recipe["Namn"]}}</h2>
+  <p class="pull-left" ng-init="limit = 130">
+  {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
+</p>
+</div>
+<button type="button" class="btn btn-primary pull-right" style="height:{{height}}px;" ng-click="open(recipe)">Läs mer</button>
+</div>
+</li> -->
 
-      <!--MODAL WINDOW-->
-      <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-          <h3>{{ recipe["Namn"] }}</h3>
-        </div>
-        <div class="modal-body">
-          <p ng-repeat="ingredient in recipe['Ingredienser']">
-            {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
-          </p>
-          <pre>{{recipe["Description"]}}</pre>
-          <div class="modal-footer">
-          </div>
-        </div>
-      </script>
-
+<div class="container">
+  <div class="row" ng-repeat="recipe in recipes">
+    <div class="col-lg-2">
     </div>
-  </ul>
+    <div class="col-lg-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{recipe["Namn"]}}</div>
+        <div class="panel-body" size-directive>
+          <p class="col-lg-10" ng-init="limit = 130">
+            {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
+          </p>
+          <button type="button" class="btn btn-primary pull-right col-lg-2" style="height:{{height}}px;" ng-click="open(recipe)">Läs mer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--MODAL WINDOW-->
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3>{{ recipe["Namn"] }}</h3>
+  </div>
+  <div class="modal-body">
+    <p ng-repeat="ingredient in recipe['Ingredienser']">
+      {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
+    </p>
+    <pre>{{recipe["Description"]}}</pre>
+    <div class="modal-footer">
+      <p class="pull-left">get: {{getTags(recipe["Tags"])}} tags: {{recipe["Tags"]}}</p>
+    </div>
+  </div>
+</script>
+
+<!-- </div>
+</ul> -->
 </div>

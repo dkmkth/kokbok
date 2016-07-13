@@ -117,25 +117,59 @@ img.bg {
 
 }
 
-.media-list {
+.row {
+	text-align: left;
+}
 
-	.well {
-		background: rgba(20,20,20, 0.7);
-		border-color: black;
-		text-align: left;
-		display: table;
+.panel {
 
-		button {
-			display: table-cell;
-		}
+	.panel-body {
+
+		padding: 5px;
 
 		p {
-			margin-top: 8px;
+			color: black;
+			margin-bottom: 0px;
+			padding-top: 22.5px;
+			padding-bottom: 22.5px;
 		}
 
 	}
 
 }
+
+// .well-sm {
+// 	background: rgba(20,20,20, 0.7);
+// 	border: 1px solid black;
+// 	display: table;
+// 	margin-bottom: 10px;
+// 	padding: 15px;
+//
+// 	button {
+// 		display: table-cell;
+// 	}
+//
+// 	.media-body {
+//
+// 		text-align: left;
+// 		margin-right: 10px;
+//
+// 		.media-heading {
+// 			padding-top: 15px;
+// 		}
+//
+// 		p {
+// 			margin-top: 15px;
+// 		  -webkit-hyphens: auto;
+// 		  -moz-hyphens: auto;
+// 		  -ms-hyphens: auto;
+// 		  hyphens: auto;
+// 		}
+//
+// 	}
+//
+// }
+
 
 #collapse {
 	p {
