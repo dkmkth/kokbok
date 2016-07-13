@@ -20,7 +20,6 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   $scope.recipes = recipeFactory.get();
 
   $scope.getTags = function(tags) {
-    console.log(tags);
     return tags.join(", ");
   };
 
