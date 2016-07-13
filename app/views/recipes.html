@@ -44,8 +44,8 @@
       {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
     </p>
     <pre>{{recipe["Description"]}}</pre>
-    <div class="modal-footer">
-      <p class="pull-left">get: {{getTags(recipe["Tags"])}} tags: {{recipe["Tags"]}}</p>
+    <div class="modal-footer" ng-controller="RecipesCtrl">
+      <p class="pull-left">Taggar: {{getTags(recipe["Tags"])}}</p>
     </div>
   </div>
 </script>
