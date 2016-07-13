@@ -38,6 +38,9 @@
 <script type="text/ng-template" id="myModalContent.html">
   <div class="modal-header">
     <h3>{{ recipe["Namn"] }}</h3>
+    <button type="button" class="btn btn-default pull-right" aria-label="Close modal" ng-click="$close()">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button>
   </div>
   <div class="modal-body">
     <p ng-repeat="ingredient in recipe['Ingredienser']">
