@@ -117,25 +117,22 @@ img.bg {
 
 }
 
+// Pull text in rows (panels specifically) to the left
 .row {
 	text-align: left;
 }
 
+// Recipe panels
 .panel {
-
 	.panel-body {
-
 		padding: 5px;
-
 		p {
 			color: black;
 			margin-bottom: 0px;
 			padding-top: 22.5px;
 			padding-bottom: 22.5px;
 		}
-
 	}
-
 }
 
 // .well-sm {
@@ -170,6 +167,36 @@ img.bg {
 //
 // }
 
+
+// Modal specific CSS
+.modal-content {
+
+	.modal-header {
+		h2 {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+	}
+
+	.modal-body {
+		p {
+			margin: 0 0 5px;
+		}
+
+		pre {
+			margin-top: 10px;
+		}
+
+		.modal-footer {
+
+			padding-left: 0px;
+			
+			p {
+				margin: 0px;
+			}
+		}
+	}
+}
 
 #collapse {
 	p {

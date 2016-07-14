@@ -24,11 +24,12 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   };
 
   // MODAL WINDOW
-  $scope.open = function (_recipe) {
+  $scope.open = function (_recipe, size) {
 
     var modalInstance = $uibModal.open({
       controller: "ModalInstanceCtrl",
       templateUrl: 'myModalContent.html',
+      size: size,
       resolve: {
         recipe: function()
         {

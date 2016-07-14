@@ -27,7 +27,7 @@
           <p class="col-lg-10" ng-init="limit = 130">
             {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
           </p>
-          <button type="button" class="btn btn-primary pull-right col-lg-2" style="height:{{height}}px;" ng-click="open(recipe)">Läs mer</button>
+          <button type="button" class="btn btn-primary pull-right col-lg-2" style="height:{{height}}px;" ng-click="open(recipe, 'lg')">Läs mer</button>
         </div>
       </div>
     </div>
@@ -37,10 +37,11 @@
 <!--MODAL WINDOW-->
 <script type="text/ng-template" id="myModalContent.html">
   <div class="modal-header">
-    <h3>{{ recipe["Namn"] }}</h3>
-    <button type="button" class="btn btn-default pull-right" aria-label="Close modal" ng-click="$close()">
-      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-    </button>
+    <h2>{{ recipe["Namn"] }}
+      <button type="button" class="btn btn-default pull-right" aria-label="Close modal" ng-click="$close()">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+    </h2>
   </div>
   <div class="modal-body">
     <p ng-repeat="ingredient in recipe['Ingredienser']">
