@@ -137,7 +137,6 @@ img.bg {
 
 // Modal specific CSS
 .modal-content {
-
 	.modal-header {
 		h2 {
 			margin-top: 0px;
@@ -154,18 +153,32 @@ img.bg {
 			margin-top: 10px;
 		}
 
+		.form-horizontal {
+			.form-group {
+				margin: 0px;
+
+				button {
+					margin-top: 5px;
+					.glyphicon {
+						top: 3px;
+					}
+				}
+			}
+		}
+
 		// Comments specific CSS
 		.comments {
 			.panel-white {
-				border: 1px solid #dddddd;
+				border: 2px solid #dddddd;
 			}
 
 			.post {
 				.post-heading {
-					padding: 10px 15px 30px;
+					padding: 0px 15px 30px;
 				}
 				.post-description {
 					padding: 15px;
+					padding-bottom: 0px;
 				}
 			}
 
@@ -173,15 +186,28 @@ img.bg {
 				border-top: 1px solid #ddd;
 				padding: 15px;
 
+				.form-inline {
+					.form-group {
+						margin-left: 10px;
+
+						button {
+							.glyphicon {
+								top: 3px;
+							}
+						}
+					}
+				}
+
 				.comments-list {
 					padding: 0;
-					margin-top: 20px;
+					margin-top: 0px;
 					list-style-type: none;
 
 					.comment {
+						margin-top: 0px;
 						display: block;
 						width: 100%;
-						margin: 20px 0;
+						margin: 10px 0;
 
 						.comment-heading {
 							display: block;
@@ -189,6 +215,10 @@ img.bg {
 						}
 						.comment-body {
 							margin-left: 25px;
+
+							h5 {
+							margin-bottom: 0px;
+						}
 						}
 					}
 				}
