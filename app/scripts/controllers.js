@@ -19,10 +19,6 @@ angular.module('cookbook.controllers', ['cookbook.services'])
 
   $scope.recipes = recipeFactory.get();
 
-  $scope.getTags = function(tags) {
-    return tags.join(", ");
-  };
-
   // MODAL WINDOW
   $scope.open = function (_recipe, size) {
 
@@ -65,7 +61,10 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   }
 })
 
-.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, recipe)
-{
+.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, recipe) {
   $scope.recipe = recipe;
+
+  $scope.getTags = function(tags) {
+    return tags.join(", ");
+  };
 });

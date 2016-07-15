@@ -22,7 +22,7 @@
     </div>
     <div class="col-lg-8">
       <div class="panel panel-default">
-        <div class="panel-heading">{{recipe["Namn"]}}</div>
+        <div class="panel-heading"><strong>{{recipe["Namn"]}}</strong></div>
         <div class="panel-body" size-directive>
           <p class="col-lg-10" ng-init="limit = 130">
             {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
@@ -44,12 +44,14 @@
     </h2>
   </div>
   <div class="modal-body">
+    <h4>Ingredienser:</h4>
     <p ng-repeat="ingredient in recipe['Ingredienser']">
       {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
     </p>
+    <h4>Tillagning:</h4>
     <pre>{{recipe["Description"]}}</pre>
-    <div class="modal-footer" ng-controller="RecipesCtrl">
-      <p class="pull-left">Taggar: {{getTags(recipe["Tags"])}}</p>
+    <div class="modal-footer">
+      <p class="pull-left"><strong>Taggar:</strong> {{getTags(recipe["Tags"])}}</p>
     </div>
   </div>
 </script>
