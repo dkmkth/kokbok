@@ -4,41 +4,69 @@ angular.module('cookbook.services', [])
 .factory('recipeFactory', function() {
   var recipes = [
     {"Namn": "Recept 1",
-     "Ingredienser": [
+     "Ingredients": [
        {"Namn": "Mjöl", "Mängd": "2 dl"},
        {"Namn": "Vatten", "Mängd": "2 ml"},
      ],
       "Description": "Rör om",
-      "Tags": ["asd", "aa", "p"]},
+      "Tags": ["asd", "aa", "p"],
+      "Comments": [
+                  {"Poster": "Emil",
+                  "Comment": "Det här var ju gott",
+                  "Replies": [{"Poster": "Paul", "Comment": "absolut inte"}, {"Poster": "Paul", "Comment": "absolut inte"}]},
+                  {"Poster": "Emil",
+                  "Comment": "Det här var ju gott",
+                  "Replies": [{"Poster": "Paul", "Comment": "absolut inte"}, {"Poster": "Paul", "Comment": "absolut inte"}]}
+                ]},
      {"Namn": "Recept 2",
-      "Ingredienser": [
+      "Ingredients": [
         {"Namn": "Botten", "Mängd": "670 dl"},
         {"Namn": "Topping", "Mängd": "2 liter"},
       ],
        "Description": "Lägg på Topping",
-       "Tags": ["asd", "aa", "p"]},
+       "Tags": ["asd", "aa", "p"],
+       "Comments": [
+                  {"Poster": "Emil",
+                  "Comment": "Det här var ju gott",
+                  "Replies": [{"Poster": "Malle", "Comment": "Fuck you"},]}
+                ]},
       {"Namn": "Ägg",
-       "Ingredienser": [
+       "Ingredients": [
          {"Namn": "Äggvita", "Mängd": "670 dl"},
          {"Namn": "Äggula", "Mängd": "2 liter"},
          {"Namn": "Skal", "Mängd": "78 liter"},
        ],
         "Description": "Svårt detta",
-        "Tags": ["asd", "aa", "p"]},
+        "Tags": ["asd", "aa", "p"],
+        "Comments": [
+                    {"Poster": "Emil",
+                    "Comment": "Det här var ju gott",
+                    "Replies": [{"Poster": "Aron", "Comment": "Nä"},]}
+                  ]},
        {"Namn": "Frukost",
-        "Ingredienser": [
+        "Ingredients": [
           {"Namn": "Yoghurt", "Mängd": "3 dl"},
           {"Namn": "Flingor", "Mängd": "50 g"},
         ],
          "Description": "Häll i Flingor",
-         "Tags": ["asd", "aa", "p"]},
+         "Tags": ["asd", "aa", "p"],
+         "Comments": [
+                    {"Poster": "Emil",
+                    "Comment": "Det här var ju gott",
+                    "Replies": [{"Poster": "Helena", "Comment": "Ja"},]}
+                  ]},
         {"Namn": "Macka",
-         "Ingredienser": [
+         "Ingredients": [
            {"Namn": "Bröd", "Mängd": "1 st"},
            {"Namn": "Smör", "Mängd": "1 paket"},
          ],
           "Description": "Bre på smör",
-          "Tags": ["asd", "aa", "p"]},
+          "Tags": ["asd", "aa", "p"],
+          "Comments": [
+                      {"Poster": "Emil",
+                      "Comment": "Det här var ju gott",
+                      "Replies": [{"Poster": "Jos-jos", "Comment": "Tycker inte jag"},]}
+                    ]},
   ];
 
 
@@ -52,13 +80,14 @@ angular.module('cookbook.services', [])
     //Adds a recipe to the recipes JSON
     add: function(name, ingredients, amounts, description, tags) {
       var newRecipe = {"Namn": name,
-       "Ingredienser": [
+       "Ingredients": [
        ],
         "Description": description,
-        "Tags": tags};
+        "Tags": tags,
+        "Comments": []};
        for (var i = 0; i < ingredients.length; i++) {
          var newIngredient = {"Namn": ingredients[i], "Mängd": amounts[i]};
-         newRecipe.Ingredienser[i] = newIngredient;
+         newRecipe.Ingredients[i] = newIngredient;
        }
        recipes[recipes.length] = newRecipe;
     }

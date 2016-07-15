@@ -2,60 +2,77 @@
 
   <h1>Våra recept</h1>
 
-  <!-- <ul class="media-list">
-  <div class="container">
-  <li class="media col-lg-8 col-lg-offset-2" ng-repeat="recipe in recipes">
-  <div class="well-sm" size-directive>
-  <div class="media-body">
-  <h2 class="media-heading media-left">{{recipe["Namn"]}}</h2>
-  <p class="pull-left" ng-init="limit = 130">
-  {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
-</p>
-</div>
-<button type="button" class="btn btn-primary pull-right" style="height:{{height}}px;" ng-click="open(recipe)">Läs mer</button>
-</div>
-</li> -->
 
-<div class="container">
-  <div class="row" ng-repeat="recipe in recipes">
-    <div class="col-lg-2">
-    </div>
-    <div class="col-lg-8">
-      <div class="panel panel-default">
-        <div class="panel-heading"><strong>{{recipe["Namn"]}}</strong></div>
-        <div class="panel-body" size-directive>
-          <p class="col-lg-10" ng-init="limit = 130">
-            {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
-          </p>
-          <button type="button" class="btn btn-primary pull-right col-lg-2" style="height:{{height}}px;" ng-click="open(recipe, 'lg')">Läs mer</button>
+  <div class="container">
+    <div class="row" ng-repeat="recipe in recipes">
+      <div class="col-lg-2">
+      </div>
+      <div class="col-lg-8">
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>{{recipe["Namn"]}}</strong></div>
+          <div class="panel-body" size-directive>
+            <p class="col-lg-10" ng-init="limit = 130">
+              {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
+            </p>
+            <button type="button" class="btn btn-primary pull-right col-lg-2" style="height:{{height}}px;" ng-click="open(recipe, 'lg')">Läs mer</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!--MODAL WINDOW-->
-<script type="text/ng-template" id="myModalContent.html">
-  <div class="modal-header">
-    <h2>{{ recipe["Namn"] }}
-      <button type="button" class="btn btn-default pull-right" aria-label="Close modal" ng-click="$close()">
-        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      </button>
-    </h2>
-  </div>
-  <div class="modal-body">
-    <h4>Ingredienser:</h4>
-    <p ng-repeat="ingredient in recipe['Ingredienser']">
-      {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
-    </p>
-    <h4>Tillagning:</h4>
-    <pre>{{recipe["Description"]}}</pre>
-    <div class="modal-footer">
-      <p class="pull-left"><strong>Taggar:</strong> {{getTags(recipe["Tags"])}}</p>
+  <!--MODAL WINDOW-->
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+      <h2>{{ recipe["Namn"] }}
+        <button type="button" class="btn btn-default pull-right" aria-label="Close modal" ng-click="$close()">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+      </h2>
     </div>
+    <div class="modal-body">
+      <h4>Ingredienser:</h4>
+      <p ng-repeat="ingredient in recipe['Ingredients']">
+        {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
+      </p>
+      <h4>Tillagning:</h4>
+      <pre>{{recipe["Description"]}}</pre>
+      <h4>Kommentarer:</h4>
+      <div class="comments">
+        <div class="panel panel-white post" ng-repeat="comment in recipe['Comments']">
+          <div class="post-heading">
+            <div class="pull-left">
+              <h4>
+                {{comment["Poster"]}} skrev:
+              </h4>
+            </div>
+          </div>
+          <div class="post-description">
+            <p>{{comment["Comment"]}}</p>
+          </div>
+          <div class="post-footer">
+            <div class="input-group">
+              <input class="form-control" placeholder="Svara på {{comment['Poster']}}s inlägg" type="text">
+              <span class="input-group-addon">
+                <a ng-click=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+              </span>
+            </div>
+            <ul class="comments-list">
+              <li class="comment" ng-repeat="reply in comment['Replies']">
+                <div class="comment-body">
+                  <div class="comment-heading">
+                    <h5 class="user">{{reply["Poster"]}} svarade:</h5>
+                  </div>
+                  <p>{{reply["Comment"]}}</p>
+                  </div
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p class="pull-left"><strong>Taggar:</strong> {{getTags(recipe["Tags"])}}</p>
+        </div>
+      </div>
+    </script>
   </div>
-</script>
-
-<!-- </div>
-</ul> -->
-</div>
