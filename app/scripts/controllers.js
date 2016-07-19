@@ -61,10 +61,19 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   }
 })
 
-.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, recipe) {
+.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, recipe, recipeFactory) {
   $scope.recipe = recipe;
 
   $scope.getTags = function(tags) {
     return tags.join(", ");
   };
+
+  $scope.addComment = function(name, comment) {
+    recipeFactory.addComment($scope.recipe, name, comment);
+  }
+
+  $scope.addReply = function(currentComment, name, reply) {
+    console.log(currentComment);
+    recipeFactory.addReply($scope.recipe, currentComment, name, reply);
+  }
 });

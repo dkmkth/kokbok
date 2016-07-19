@@ -90,6 +90,35 @@ angular.module('cookbook.services', [])
          newRecipe.Ingredients[i] = newIngredient;
        }
        recipes[recipes.length] = newRecipe;
+    },
+
+    addComment: function(currentRecipe, name, comment) {
+      var newComment = {"Poster": name, "Comment": comment, "Replies": []};
+      for (var i = 0; i < recipes.length; i++) {
+        if (recipes[i].Namn == currentRecipe.Namn) {
+          var comments = recipes[i].Comments;
+          comments.unshift(newComment);
+          recipes[i].Comments = comments;
+          return;
+        }
+      }
+    },
+
+    addReply: function(currentRecipe, currentComment,name, reply) {
+      var newReply = {"Poster": name, "Comment": reply, "Replies": []};
+      for (var i = 0; i < recipes.length; i++) {
+        if (recipes[i].Namn == currentRecipe.Namn) {
+          var comments = recipes[i].Comments;
+          for (var j = 0; i < comments.length; j++) {
+            if (comments[i] == currentComment) {
+              var replies = comments[i].Replies;
+              replies.unshift(newReply);
+              recipes[i].Replies = replies;
+              return;
+            }
+          }
+        }
+      }
     }
 
   };
