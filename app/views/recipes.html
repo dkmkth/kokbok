@@ -55,7 +55,7 @@
       </form>
       <h4>Kommentarer:</h4>
       <div class="comments">
-        <div class="panel panel-white post panel-shadow" ng-repeat="comment in recipe['Comments']">
+        <div class="panel panel-white post" ng-repeat="comment in recipe['Comments']">
           <div class="post-heading">
             <div class="pull-left">
               <h4>
@@ -96,7 +96,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <p class="pull-left"><strong>Taggar:</strong> {{getTags(recipe["Tags"])}}</p>
+          <p class="pull-left"><strong>Taggar:</strong> {{recipe["Tags"].length > 0 ? getTags(recipe["Tags"]) : ''}}</p>
         </div>
       </div>
     </script>

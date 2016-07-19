@@ -104,16 +104,17 @@ angular.module('cookbook.services', [])
       }
     },
 
-    addReply: function(currentRecipe, currentComment,name, reply) {
-      var newReply = {"Poster": name, "Comment": reply, "Replies": []};
+    addReply: function(currentRecipe, currentComment, name, reply) {
+      var newReply = {"Poster": name, "Comment": reply};
       for (var i = 0; i < recipes.length; i++) {
         if (recipes[i].Namn == currentRecipe.Namn) {
           var comments = recipes[i].Comments;
-          for (var j = 0; i < comments.length; j++) {
-            if (comments[i] == currentComment) {
-              var replies = comments[i].Replies;
+          for (var j = 0; j < comments.length; j++) {
+            if (comments[j] == currentComment) {
+              var replies = comments[j].Replies;
               replies.unshift(newReply);
-              recipes[i].Replies = replies;
+              comments[j].Replies = replies;
+              recipes[i].Comments = comments;
               return;
             }
           }
