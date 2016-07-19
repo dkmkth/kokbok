@@ -168,8 +168,13 @@ img.bg {
 
 		// Comments specific CSS
 		.comments {
+
+			.panel-shadow {
+				box-shadow: rgba(0, 0, 0, 0.6) 10px 10px 7px 0px;
+			}
+
 			.panel-white {
-				border: 2px solid #dddddd;
+				border: 1px solid #dddddd;
 			}
 
 			.post {
@@ -217,8 +222,8 @@ img.bg {
 							margin-left: 25px;
 
 							h5 {
-							margin-bottom: 0px;
-						}
+								margin-bottom: 0px;
+							}
 						}
 					}
 				}
