@@ -8,6 +8,10 @@ angular.module('cookbook.controllers', ['cookbook.services'])
       return "off";
     }
   };
+
+  $scope.search = function() {
+    alert("Under construction");
+  }
 })
 
 .controller('HomeCtrl', function($scope) {
@@ -37,7 +41,14 @@ angular.module('cookbook.controllers', ['cookbook.services'])
 })
 
 .controller('AddCtrl', function($scope, recipeFactory) {
-  $scope.foo = "Addcontroller";
+  var clearForm = function() {
+    $scope.ingredients = [];
+    $scope.amounts = [];
+    $scope.dish = "";
+    $scope.count = 0;
+    $scope.description = "";
+    $scope.tags = "";
+  }
 
   $scope.ingredients = [];
   $scope.amounts = [];
@@ -58,6 +69,9 @@ angular.module('cookbook.controllers', ['cookbook.services'])
       return;
     }
     recipeFactory.add(dishName, $scope.ingredients, $scope.amounts, description, tags);
+    clearForm();
+    $scope.addForm.$setPristine();
+    $scope.addForm.$setUntouched();
   }
 })
 
@@ -68,12 +82,20 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     return tags.join(", ");
   };
 
-  $scope.addComment = function(name, comment) {
-    recipeFactory.addComment($scope.recipe, name, comment);
+  $scope.addComment = function(name, text) {
+    recipeFactory.addComment($scope.recipe, name, text);
+    $scope.name = "";
+    $scope.text = "";
+    $scope.commentForm.$setPristine();
+    $scope.commentForm.$setUntouched();
   }
 
   $scope.addReply = function(currentComment, name, reply) {
     console.log(currentComment);
     recipeFactory.addReply($scope.recipe, currentComment, name, reply);
+    $scope.rName = "";
+    $scope.reply = "";
+    $scope.replyForm.$setPristine();
+    $scope.replyForm.$setUntouched();
   }
 });
