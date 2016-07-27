@@ -21,6 +21,28 @@ img.bg {
 	z-index: -1;
 }
 
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.94);
+	text-align: center;
+
+	p {
+		color: #d6d6d6;
+	}
+}
+
 @media screen and (max-width: 1024px){
 	img.bg {
 		left: 50%;
@@ -99,6 +121,7 @@ img.bg {
 	background-color: rgba(0, 0, 0, 0.9);
 	//Start jumbotron with space from navbar
 	margin-top: 100px;
+	margin-bottom: 0px;
 
 	p {
 		color: white;
