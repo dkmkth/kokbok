@@ -32,7 +32,7 @@
     </div>
     <div class="modal-body">
       <h4>Ingredienser:</h4>
-      <p ng-repeat="ingredient in recipe['Ingredients']">
+      <p ng-repeat="ingredient in recipe['Ingredients']" id="ingredient">
         {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
       </p>
       <h4>Tillagning:</h4>
@@ -53,15 +53,13 @@
           </button>
         </div>
       </form>
-      <h4>Kommentarer:</h4>
-      <div class="comments">
+      <a ng-click="show()"><h4 id="comments">{{hidden ? 'Visa ' : 'Dölj '}}kommentarer{{hidden ? '(' + commentAmount() + ')': ''}}</h4></a>
+      <div class="comments" ng-show="!hidden">
         <div class="panel panel-white post" ng-repeat="comment in recipe['Comments']">
           <div class="post-heading">
-            <div class="pull-left">
               <h4>
                 {{comment["Poster"]}} skrev:
               </h4>
-            </div>
           </div>
           <div class="post-description">
             <p>{{comment["Comment"]}}</p>

@@ -77,6 +77,15 @@ angular.module('cookbook.controllers', ['cookbook.services'])
 
 .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, recipe, recipeFactory) {
   $scope.recipe = recipe;
+  $scope.hidden = true;
+
+  $scope.show = function() {
+    $scope.hidden = !($scope.hidden);
+  };
+
+  $scope.commentAmount = function() {
+    return recipeFactory.comments($scope.recipe);
+  };
 
   $scope.getTags = function(tags) {
     return tags.join(", ");
@@ -88,7 +97,7 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     $scope.text = "";
     $scope.commentForm.$setPristine();
     $scope.commentForm.$setUntouched();
-  }
+  };
 
   $scope.addReply = function(currentComment, name, reply) {
     console.log(currentComment);
@@ -97,5 +106,5 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     $scope.reply = "";
     $scope.replyForm.$setPristine();
     $scope.replyForm.$setUntouched();
-  }
+  };
 });
