@@ -97,6 +97,8 @@ img.bg {
 .jumbotron {
 	text-align: center;
 	background-color: rgba(0, 0, 0, 0.9);
+	//Start jumbotron with space from navbar
+	margin-top: 100px;
 
 	p {
 		color: white;
@@ -131,6 +133,8 @@ img.bg {
 			margin-bottom: 0px;
 			padding-top: 22.5px;
 			padding-bottom: 22.5px;
+			word-break: break-all;
+			white-space: normal;
 		}
 	}
 }
@@ -145,12 +149,18 @@ img.bg {
 	}
 
 	.modal-body {
+		padding: 0px 15px 5px 15px;
+
 		p {
-			margin: 0 0 5px;
+			margin: 0px;
 		}
 
 		pre {
 			margin-top: 10px;
+		}
+
+		#comments {
+			margin-top: -15px;
 		}
 
 		.form-horizontal {
@@ -169,23 +179,35 @@ img.bg {
 		// Comments specific CSS
 		.comments {
 
+			p {
+				margin: 0 0 5px;
+			}
+
 			.panel-white {
 				border: 1px solid #dddddd;
 			}
 
 			.post {
 				.post-heading {
-					padding: 0px 15px 30px;
+					padding: 0px 15px 0px;
+					h4 {
+						margin-bottom: 0px;
+	}
+
 				}
 				.post-description {
-					padding: 15px;
-					padding-bottom: 0px;
+					padding: 5px 0px 0px 15px;
+				}
+
+				p {
+					word-break: break-all;
+					white-space: normal;
 				}
 			}
 
 			.post-footer {
 				border-top: 1px solid #ddd;
-				padding: 15px;
+				padding: 10px 15px 0px 15px;
 
 				.form-inline {
 					.form-group {
@@ -239,6 +261,9 @@ img.bg {
 #collapse {
 	p {
 		color: black;
+		padding: 5px;
+		word-break: break-all;
+		white-space: normal
 	}
 }
 
