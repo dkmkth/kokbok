@@ -11,10 +11,10 @@
         <div class="panel panel-default">
           <div class="panel-heading"><strong>{{recipe["Namn"]}}</strong></div>
           <div class="panel-body" size-directive>
-            <p class="col-lg-10" ng-init="limit = 130">
+            <p class="col-lg-10" ng-init="limit = 100">
               {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
             </p>
-            <button type="button" class="btn btn-primary pull-right col-lg-2" style="height:{{height}}px;" ng-click="open(recipe, 'lg')">Läs mer</button>
+            <button type="button" class="btn btn-primary pull-right col-lg-2" style="height:{{height*0.9}}px;" ng-click="open(recipe, 'lg')">Läs mer</button>
           </div>
         </div>
       </div>
