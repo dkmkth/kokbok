@@ -24,18 +24,18 @@ img.bg {
 
 /* Wrapper for page content to push down footer */
 #wrap {
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -100px;
-  /* Pad bottom by footer height */
-  padding: 0 0 100px;
+	min-height: 100%;
+	height: auto;
+	/* Negative indent footer by its height */
+	margin: 0 auto -100px;
+	/* Pad bottom by footer height */
+	padding: 0 0 100px;
 }
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 100px;
-  background-color: rgba(0, 0, 0, 0.94);
+	height: 100px;
+	background-color: rgba(0, 0, 0, 0.94);
 	text-align: center;
 
 	p {
@@ -151,7 +151,7 @@ img.bg {
 .panel {
 	.panel-body {
 		padding: 5px;
-    height: 90px;
+		height: 90px;
 
 		p {
 			margin: 8px 0px 0px 0px;
@@ -173,6 +173,10 @@ img.bg {
 
 	.modal-body {
 		padding: 0px 15px 5px 15px;
+
+		a {
+			cursor: pointer;
+}
 
 		p {
 			margin: 0px;
@@ -215,7 +219,7 @@ img.bg {
 					padding: 0px 15px 0px;
 					h4 {
 						margin-bottom: 0px;
-	}
+					}
 
 				}
 				.post-description {
@@ -282,6 +286,10 @@ img.bg {
 }
 
 #collapse {
+	.panel-body {
+		height: 240px;
+	}
+
 	p {
 		color: black;
 		padding: 5px;
