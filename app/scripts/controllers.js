@@ -21,7 +21,18 @@ angular.module('cookbook.controllers', ['cookbook.services'])
 .controller('RecipesCtrl', function($scope, recipeFactory, $timeout, $uibModal, $log) {
   $scope.foo = "Recipescontroller";
 
-  $scope.recipes = recipeFactory.get();
+  $scope.recipes = "";
+
+  $scope.getRecipes = function () {
+    var success = function(res) {
+      console.log(res.data);
+      $scope.recipes = res.data;
+    }
+    var error = function(err) {
+      console.log(err);
+    }
+    recipeFactory.get(success, error);
+  }
 
   // MODAL WINDOW
   $scope.open = function (_recipe, size) {
@@ -68,7 +79,13 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     if ($scope.ingredients.length == 0) {
       return;
     }
-    recipeFactory.add(dishName, $scope.ingredients, $scope.amounts, description, tags);
+    var success = function (res) {
+      console.log("Recipe added");
+    }
+    var error = function (err) {
+      console.log(err);
+    }
+    recipeFactory.add(dishName, $scope.ingredients, $scope.amounts, description, tags, success, error);
     clearForm();
     $scope.addForm.$setPristine();
     $scope.addForm.$setUntouched();
@@ -92,7 +109,7 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   }
 
   $scope.commentAmount = function() {
-    return recipeFactory.comments($scope.recipe);
+    return $scope.recipe.comments.length;
   }
 
   $scope.getTags = function(tags) {
@@ -100,7 +117,13 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   };
 
   $scope.addComment = function(name, text) {
-    recipeFactory.addComment($scope.recipe, name, text);
+    var success = function (res) {
+      console.log("Comment added");
+    }
+    var error = function (err) {
+      console.log(err);
+    }
+    recipeFactory.addComment($scope.recipe._id, name, text, success, error);
     $scope.name = "";
     $scope.text = "";
     $scope.commentForm.$setPristine();
@@ -108,10 +131,16 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   }
 
   $scope.addReply = function(currentComment, name, reply) {
-    console.log(currentComment);
-    recipeFactory.addReply($scope.recipe, currentComment, name, reply);
+    var success = function (res) {
+      console.log("Reply added");
+    }
+    var error = function (err) {
+      console.log(err);
+    }
+    recipeFactory.addReply($scope.recipe._id, currentComment._id, name, reply, success, error);
     $scope.rName = "";
     $scope.reply = "";
+    console.log($scope);
     $scope.replyForm.$setPristine();
     $scope.replyForm.$setUntouched();
   }

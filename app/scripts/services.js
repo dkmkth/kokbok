@@ -1,7 +1,7 @@
 angular.module('cookbook.services', [])
 
 
-.factory('recipeFactory', function() {
+.factory('recipeFactory', function($http) {
   var recipes = [
     {"Namn": "Recept 1",
     "Ingredients": [
@@ -73,62 +73,57 @@ angular.module('cookbook.services', [])
   return {
 
     //Returns the recipes JSON
-    get: function() {
-      return recipes;
+    get: function(success, error) {
+      $http.get('http://localhost:8080/api/recipes').then(success, error);
     },
 
     //Adds a recipe to the recipes JSON
-    add: function(name, ingredients, amounts, description, tags) {
-      var newRecipe = {"Namn": name,
-      "Ingredients": [
-      ],
-      "Description": description,
-      "Tags": tags,
-      "Comments": []};
-      for (var i = 0; i < ingredients.length; i++) {
-        var newIngredient = {"Namn": ingredients[i], "Mängd": amounts[i]};
-        newRecipe.Ingredients[i] = newIngredient;
+    add: function(name, ingredient, amount, description, tags, success, error) {
+      var ingredients = [];
+      for (var i = 0; i < ingredient.length; i++) {
+        var newIngredient = {"name": ingredient[i], "amount": amount[i]};
+        ingredients[i] = newIngredient;
       }
-      recipes[recipes.length] = newRecipe;
+      $http({
+        method  : 'POST',
+        url     : 'http://localhost:8080/api/recipes',
+        // set the headers so angular passing info as form data (not request payload)
+        headers : { 'Content-Type': 'application/json' },
+        data    :  {
+          name: name,
+          ingredients: ingredients,
+          description: description,
+          tags: tags,
+          comments: [],
+          date: Date.now()
+        }
+      }).then(success, error)
     },
 
-    comments: function(currentRecipe) {
-      for (var i = 0; i < recipes.length; i++) {
-        if (recipes[i].Namn == currentRecipe.Namn) {
-          return recipes[i].Comments.length;
+    addComment: function(recipe_id, name, comment, success, error) {
+      $http({
+        method  : 'PUT',
+        url     : 'http://localhost:8080/api/recipes/comment/' + recipe_id,
+        // set the headers so angular passing info as form data (not request payload)
+        headers : { 'Content-Type': 'application/json' },
+        data    :  {
+          name: name,
+          comment: comment
         }
-      }
-      return 0;
+      }).then(success, error)
     },
 
-    addComment: function(currentRecipe, name, comment) {
-      var newComment = {"Poster": name, "Comment": comment, "Replies": []};
-      for (var i = 0; i < recipes.length; i++) {
-        if (recipes[i].Namn == currentRecipe.Namn) {
-          var comments = recipes[i].Comments;
-          comments.unshift(newComment);
-          recipes[i].Comments = comments;
-          return;
+    addReply: function(recipe_id, comment_id, name, reply, success, error) {
+      $http({
+        method  : 'PUT',
+        url     : 'http://localhost:8080/api/recipes/' + recipe_id + '/' +  comment_id,
+        // set the headers so angular passing info as form data (not request payload)
+        headers : { 'Content-Type': 'application/json' },
+        data    :  {
+          name: name,
+          reply: reply
         }
-      }
-    },
-
-    addReply: function(currentRecipe, currentComment, name, reply) {
-      var newReply = {"Poster": name, "Comment": reply};
-      for (var i = 0; i < recipes.length; i++) {
-        if (recipes[i].Namn == currentRecipe.Namn) {
-          var comments = recipes[i].Comments;
-          for (var j = 0; j < comments.length; j++) {
-            if (comments[j] == currentComment) {
-              var replies = comments[j].Replies;
-              replies.unshift(newReply);
-              comments[j].Replies = replies;
-              recipes[i].Comments = comments;
-              return;
-            }
-          }
-        }
-      }
+      }).then(success, error)
     }
 
   };
