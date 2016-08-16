@@ -140,7 +140,6 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     recipeFactory.addReply($scope.recipe._id, currentComment._id, name, reply, success, error);
     $scope.rName = "";
     $scope.reply = "";
-    console.log($scope);
     $scope.replyForm.$setPristine();
     $scope.replyForm.$setUntouched();
   }
