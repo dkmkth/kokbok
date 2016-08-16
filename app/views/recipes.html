@@ -3,16 +3,16 @@
   <h1>Våra recept</h1>
 
 
-  <div class="container">
+  <div class="container" ng-init="getRecipes()">
     <div class="row" ng-repeat="recipe in recipes">
       <div class="col-lg-2">
       </div>
       <div class="col-lg-8">
         <div class="panel panel-default">
-          <div class="panel-heading"><strong>{{recipe["Namn"]}}</strong></div>
+          <div class="panel-heading"><strong>{{recipe["name"]}}</strong></div>
           <div class="panel-body" size-directive>
             <p class="col-lg-10" ng-init="limit = 100">
-              {{ recipe["Description"] | limitTo:limit }} {{recipe["Description"].length > limit ? '...' : ''}}
+              {{ recipe["description"] | limitTo:limit }} {{recipe["description"].length > limit ? '...' : ''}}
             </p>
             <button type="button" class="btn btn-primary pull-right col-lg-2" style="height:{{height*0.9}}px;" ng-click="open(recipe, 'lg')">Läs mer</button>
           </div>
@@ -26,7 +26,7 @@
   <!--MODAL WINDOW-->
   <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
-      <h2>{{ recipe["Namn"] }}
+      <h2>{{ recipe["name"] }}
         <button type="button" class="btn btn-default pull-right" aria-label="Close modal" ng-click="$close()">
           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
         </button>
@@ -34,11 +34,11 @@
     </div>
     <div class="modal-body">
       <h4>Ingredienser:</h4>
-      <p ng-repeat="ingredient in recipe['Ingredients']" id="ingredient">
-        {{ ingredient["Namn"] }} - {{ ingredient["Mängd"] }}
+      <p ng-repeat="ingredient in recipe['ingredients']" id="ingredient">
+        {{ ingredient["name"] }} - {{ ingredient["amount"] }}
       </p>
       <h4>Tillagning:</h4>
-      <pre>{{recipe["Description"]}}</pre>
+      <pre>{{recipe["description"]}}</pre>
       <h4>Kommentera</h4>
       <form role="form" class="form-horizontal no-margin center-block" name="commentForm" ng-submit="addComment(name, text)">
         <div class="form-group">
@@ -47,7 +47,7 @@
         </div>
         <div class="form-group">
           <label class="control-label" for="name">Beskrivning</label>
-          <textarea class="form-control" rows="5" placeholder="Vad har du att säga angående denna utsökta {{recipe['Namn']}}" ng-model="text" ng-model-options="{ updateOn: 'default blur', debounce: { default: 300, blur: 0}}" required></textarea>
+          <textarea class="form-control" rows="5" placeholder="Vad har du att säga angående denna utsökta {{recipe['name']}}" ng-model="text" ng-model-options="{ updateOn: 'default blur', debounce: { default: 300, blur: 0}}" required></textarea>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-info pull-right" ng-disabled="commentForm.$invalid">
@@ -57,14 +57,14 @@
       </form>
       <a ng-click="show()"><h4 id="comments">{{hidden ? 'Visa ' : 'Dölj '}}kommentarer{{hidden ? '(' + commentAmount() + ')': ''}}</h4></a>
       <div class="comments" ng-show="!hidden">
-        <div class="panel panel-white post" ng-repeat="comment in recipe['Comments']">
+        <div class="panel panel-white post" ng-repeat="comment in recipe['comments']">
           <div class="post-heading">
               <h4>
-                {{comment["Poster"]}} skrev:
+                {{comment["poster"]}} skrev:
               </h4>
           </div>
           <div class="post-description">
-            <p>{{comment["Comment"]}}</p>
+            <p>{{comment["comment"]}}</p>
           </div>
           <div class="post-footer">
             <form role="form" class="form-inline" name="replyForm" ng-submit="addReply(comment, rName, reply)">
@@ -74,7 +74,7 @@
               </div>
               <div class="form-group">
                 <label class="control-label" for="reply">Svar</label>
-                <input type="text" class="form-control" placeholder="Svara på {{comment['Poster']}}s inlägg..." ng-model="reply" ng-model-options="{ updateOn: 'default blur', debounce: { default: 300, blur: 0}}" required>
+                <input type="text" class="form-control" placeholder="Svara på {{comment['poster']}}s inlägg..." ng-model="reply" ng-model-options="{ updateOn: 'default blur', debounce: { default: 300, blur: 0}}" required>
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-info pull-right" ng-disabled="replyForm.$invalid">
@@ -83,12 +83,12 @@
               </div>
             </form>
             <ul class="comments-list">
-              <li class="comment" ng-repeat="reply in comment['Replies']">
+              <li class="comment" ng-repeat="reply in comment['replies']">
                 <div class="comment-body">
                   <div class="comment-heading">
-                    <h5 class="user">{{reply["Poster"]}} svarade:</h5>
+                    <h5 class="user">{{reply["poster"]}} svarade:</h5>
                   </div>
-                  <p>{{reply["Comment"]}}</p>
+                  <p>{{reply["reply"]}}</p>
                   </div
                 </li>
               </ul>
@@ -96,7 +96,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <p class="pull-left"><strong>Taggar:</strong> {{recipe["Tags"].length > 0 ? getTags(recipe["Tags"]) : ''}}</p>
+          <p class="pull-left"><strong>Taggar:</strong> {{recipe["tags"].length > 0 ? getTags(recipe["tags"]) : ''}}</p>
         </div>
       </div>
     </script>
