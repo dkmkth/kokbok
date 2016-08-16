@@ -154,12 +154,13 @@ router.route('/recipes/:recipe_id/:comment_id')
 
     // update the comments array
     var comments = recipe.comments;
+    console.log(comments);
     for (var i = 0; i < comments.length; i++) {
-      if (comments[i] === req.params.comment_id) {
+      if (comments[i]._id == req.params.comment_id) {
         var replies = comments[i].replies;
         var newReply = {"poster": req.body.name, "reply": req.body.reply};
         replies.unshift(newReply);
-        comments[i].replies = newReply;
+        comments[i].replies = replies;
         recipe.comments = comments;
       }
     }
