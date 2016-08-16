@@ -465,10 +465,23 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // configure nodemon
+    nodemon: {
+      dev: {
+        script: 'server.js'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-autoprefixer');
+
+  // load nodemon
+  grunt.loadNpmTasks('grunt-nodemon');
+
+  // register the nodemon task when we run grunt
+  grunt.registerTask('default', ['nodemon']);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -481,7 +494,8 @@ module.exports = function (grunt) {
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
-      'watch'
+      'nodemon',
+      'watch',
     ]);
   });
 
