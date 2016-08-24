@@ -1,15 +1,6 @@
 'use strict';
 
-/**
-* @ngdoc overview
-* @name testApp
-* @description
-* # testApp
-*
-* Main module of the application.
-*/
-angular
-.module('cookbook', [
+angular.module('cookbook', [
   'cookbook.controllers',
   'cookbook.services',
   'ngAnimate',
@@ -20,6 +11,7 @@ angular
   'ngTouch',
   'ui.bootstrap'
 ])
+
 .config(function($routeProvider) {
   $routeProvider
 
@@ -41,6 +33,7 @@ angular
     controller  : 'AddCtrl'
   })
 
+  //Default route
   .otherwise({
     redirectTo: '/home',
     templateUrl: 'views/home.html',
@@ -48,6 +41,7 @@ angular
   });
 })
 
+//Collects the height of HTML element.
 .directive('sizeDirective', function($timeout) {
   return {
     restrict: 'A',
