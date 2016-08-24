@@ -116,13 +116,14 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     return tags.join(", ");
   };
 
+  var success = function (res) {
+    $scope.recipe = res.data;
+  }
+  var error = function (err) {
+    console.log(err);
+  }
+
   $scope.addComment = function(name, text) {
-    var success = function (res) {
-      console.log("Comment added");
-    }
-    var error = function (err) {
-      console.log(err);
-    }
     recipeFactory.addComment($scope.recipe._id, name, text, success, error);
     $scope.name = "";
     $scope.text = "";
@@ -131,12 +132,6 @@ angular.module('cookbook.controllers', ['cookbook.services'])
   }
 
   $scope.addReply = function(currentComment, name, reply) {
-    var success = function (res) {
-      console.log("Reply added");
-    }
-    var error = function (err) {
-      console.log(err);
-    }
     recipeFactory.addReply($scope.recipe._id, currentComment._id, name, reply, success, error);
     $scope.rName = "";
     $scope.reply = "";

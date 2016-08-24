@@ -2,6 +2,7 @@ var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/recipes');
 var Recipe = require('./app/models/recipes');
 
@@ -138,6 +139,7 @@ router.route('/recipes/comment/:recipe_id')
       if (err) {
         res.send(err);
       }
+      res.json(recipe);
     });
   });
 });
@@ -154,7 +156,6 @@ router.route('/recipes/:recipe_id/:comment_id')
 
     // update the comments array
     var comments = recipe.comments;
-    console.log(comments);
     for (var i = 0; i < comments.length; i++) {
       if (comments[i]._id == req.params.comment_id) {
         var replies = comments[i].replies;
@@ -170,6 +171,7 @@ router.route('/recipes/:recipe_id/:comment_id')
       if (err) {
         res.send(err);
       }
+      res.json(recipe);
     });
 });
 });

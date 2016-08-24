@@ -110,7 +110,7 @@ angular.module('cookbook.services', [])
           name: name,
           comment: comment
         }
-      }).then(success, error)
+      }).then(success, error);
     },
 
     addReply: function(recipe_id, comment_id, name, reply, success, error) {
@@ -124,6 +124,10 @@ angular.module('cookbook.services', [])
           reply: reply
         }
       }).then(success, error)
+    },
+
+    getRecipe: function(id, success, error) {
+      $http.get('http://localhost:8080/api/recipes/' + id).then(success, error);
     }
 
   };
