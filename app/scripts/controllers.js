@@ -127,15 +127,11 @@ angular.module('cookbook.controllers', ['cookbook.services'])
     recipeFactory.addComment($scope.recipe._id, name, text, success, error);
     $scope.name = "";
     $scope.text = "";
-    $scope.commentForm.$setPristine();
-    $scope.commentForm.$setUntouched();
   }
 
   $scope.addReply = function(currentComment, name, reply) {
     recipeFactory.addReply($scope.recipe._id, currentComment._id, name, reply, success, error);
     $scope.rName = "";
     $scope.reply = "";
-    $scope.replyForm.$setPristine();
-    $scope.replyForm.$setUntouched();
   }
 });
