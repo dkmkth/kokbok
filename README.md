@@ -11,6 +11,8 @@ Gå till `lägg till recept` och lägg till ett recept under `våra recept` åte
 
 ## Build & development
 
+$ npm install
+$ mongod
 Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
